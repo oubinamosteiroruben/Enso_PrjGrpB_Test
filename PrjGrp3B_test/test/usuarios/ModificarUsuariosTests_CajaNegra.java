@@ -25,7 +25,7 @@ class ModificarUsuariosTests_CajaNegra {
 
 	@Test
 	@DisplayName("PCN_04_Caso_01. Se envía usuario e id nulo")
-	void testUsuarioIdNull() {
+	void PCN_04_Caso_01() {
 		IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 		
 		Usuario u = igu.crearUsuario("Ruben", "344552655H", 123456789, "email@dominio.com", "ETSE", "Beach Solpor", "Activo", true);
@@ -36,7 +36,7 @@ class ModificarUsuariosTests_CajaNegra {
 	
 	@Test
 	@DisplayName("PCN_04_Caso_02. Se envía usuario nulo")
-	void testUsuarioNull() {
+	void PCN_04_Caso_02() {
 		IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 		
 		Usuario u = igu.crearUsuario("Ruben", "344552655H", 123456789, "email@dominio.com", "ETSE", "Beach Solpor", "Activo", true);
@@ -47,7 +47,7 @@ class ModificarUsuariosTests_CajaNegra {
 	
 	@Test
 	@DisplayName("PCN_04_Caso_03. Se envía id nulo")
-	void testIdNull() {
+	void PCN_04_Caso_03() {
 		IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 		
 		Usuario u = igu.crearUsuario("Ruben", "344552655H", 123456789, "email@dominio.com", "ETSE", "Beach Solpor", "Activo", true);
@@ -60,7 +60,7 @@ class ModificarUsuariosTests_CajaNegra {
 	
 	@Test
 	@DisplayName("PCN_04_Caso_04. Se envía id y usuario no null")
-	void testIdUsuarioNoNull() {
+	void PCN_04_Caso_04() {
 		IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 		
 		Usuario u = igu.crearUsuario("Ruben", "344552655H", 123456789, "email@dominio.com", "ETSE", "Beach Solpor", "Activo", true);
@@ -88,7 +88,7 @@ class ModificarUsuariosTests_CajaNegra {
 		
 		@Test
 		@DisplayName("PCN_04_Caso_05. Se modifica el id")
-		void testModifcacionId() {
+		void PCN_04_Caso_05() {
 			IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 			
 			Usuario u = igu.obtenerListaUsuarios().get(0);
@@ -104,7 +104,7 @@ class ModificarUsuariosTests_CajaNegra {
 		
 		@Test
 		@DisplayName("PCN_04_Caso_06. Se modifica un usuario de id null")
-		void testIdNull() {
+		void PCN_04_Caso_06() {
 			IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 			
 			Usuario u = igu.obtenerListaUsuarios().get(0); 
@@ -119,7 +119,7 @@ class ModificarUsuariosTests_CajaNegra {
 		
 		@Test
 		@DisplayName("PCN_04_Caso_07. Se modifica un usuario de id no existente")
-		void testIdNoExiste() {
+		void PCN_04_Caso_07() {
 			IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 			
 			Usuario u = igu.obtenerListaUsuarios().get(0);
@@ -134,7 +134,7 @@ class ModificarUsuariosTests_CajaNegra {
 		
 		@Test
 		@DisplayName("PCN_04_Caso_08. Se modifica un usuario con un atributo a null")
-		void testNombreNull() {
+		void PCN_04_Caso_08() {
 			IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 			
 			Usuario u = igu.obtenerListaUsuarios().get(0);
@@ -151,7 +151,7 @@ class ModificarUsuariosTests_CajaNegra {
 		
 		@Test
 		@DisplayName("PCN_04_Caso_09. Se modifica el centro de un usuario correctamente")
-		void testCentro() {
+		void PCN_04_Caso_09() {
 			IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 			
 			Usuario u = igu.obtenerListaUsuarios().get(0);
@@ -168,7 +168,7 @@ class ModificarUsuariosTests_CajaNegra {
 		
 		@Test
 		@DisplayName("PCN_04_Caso_10. Se modifica la capacitacion de un usuario correctamente")
-		void testCapacitacion() {
+		void PCN_04_Caso_10() {
 			IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 			
 			Usuario u = igu.obtenerListaUsuarios().get(0);

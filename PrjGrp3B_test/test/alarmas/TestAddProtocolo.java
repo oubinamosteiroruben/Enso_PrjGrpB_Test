@@ -45,7 +45,7 @@ class TestAddProtocolo {
 	
 	@DisplayName("PCB_03_Caso_01")
 	@Test
-	void testAddProtocolo() {
+	void PCB_03_Caso_01() {
 		Protocolo prot1 = ga.crearProtocolo("FUEGO", "EQUIPO_FUEGO", mensajes);
 		boolean esperado = true;
 		boolean real = ga.addProtocolo(prot1);
@@ -62,7 +62,7 @@ class TestAddProtocolo {
 	
 		@DisplayName("PCB_03_Caso_02")
 		@Test
-		void testAddProtocolo2() {
+		void PCB_03_Caso_02() {
 			
 			IllegalArgumentException i = assertThrows(IllegalArgumentException.class, ()->{ga.addProtocolo(null);});
 			assertEquals("Protocolo no válido", i.getMessage(), "Fallo al añadir equipo");
@@ -70,7 +70,7 @@ class TestAddProtocolo {
 	
 		@DisplayName ("PCB_03_Caso_03")
 		@Test
-		void testAddProtocolo3() {
+		void PCB_03_Caso_03() {
 			Protocolo prot1 = new Protocolo("PROTO_1","FUEGO", "EQUIPO_FUEGO", mensajes);
 			IllegalArgumentException i = assertThrows(IllegalArgumentException.class, ()->{ga.addProtocolo(prot1);});
 			
@@ -79,7 +79,7 @@ class TestAddProtocolo {
 		
 		@DisplayName ("PCB_03_Caso_04")
 		@Test
-		void testAddProtocolo4() {
+		void PCB_03_Caso_04() {
 			Protocolo prot1 = new Protocolo("PROT_J","FUEGO", "EQUIPO_FUEGO", mensajes);
 			IllegalArgumentException i = assertThrows(IllegalArgumentException.class, ()->{ga.addProtocolo(prot1);});
 			
@@ -88,7 +88,7 @@ class TestAddProtocolo {
 	
 		@DisplayName ("PCB_03_Caso_05")
 		@Test
-		void testAddProtocolo5() {
+		void PCB_03_Caso_05() {
 			Protocolo p1 = ga.crearProtocolo("AGUA", "EQUIPO_AGUA", mensajes);
 			Protocolo p2 = p1;
 			ga.addProtocolo(p1);
@@ -100,7 +100,7 @@ class TestAddProtocolo {
 		
 		@DisplayName ("PCB_03_Caso_06")
 		@Test
-		void testAddProtocolo6() {
+		void PCB_03_Caso_06() {
 			Protocolo prot1 = ga.crearProtocolo("AIRE", "EQUIPO_AIRE", mensajes);
 			Protocolo p2 = ga.crearProtocolo(prot1.getTipoAlarma(), prot1.getTipoEquipo(), mensajes);
 			ga.addProtocolo(prot1);
@@ -115,7 +115,7 @@ class TestAddProtocolo {
 	private Protocolo prot1;
 	@DisplayName("PCB_03_Caso_07")
 	@Test
-	void testAddProtocoloMockito() {
+	void PCB_03_Caso_07() {
 		prot1 = ga.crearProtocolo("FUEGO", "EQUIPO_FUEGO", mensajes);
 		ga = Mockito.mock(GestorAlarmas.class);
 		boolean real = false;

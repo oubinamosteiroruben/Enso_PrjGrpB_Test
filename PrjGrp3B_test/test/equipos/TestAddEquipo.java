@@ -42,7 +42,7 @@ class TestAddEquipo {
 
 	@DisplayName("PCN_03_Caso_01")
 	@Test
-	void testAddEquipo01() {
+	void PCN_03_Caso_01() {
 		
 		ArrayList<Usuario> miembros = new ArrayList<Usuario>();
 		Usuario usuario = gu.crearUsuario("Nerea", "11111111P", 623456789, "correo@usc.es", "etse", "A", "activa", false);
@@ -57,7 +57,7 @@ class TestAddEquipo {
 
 	@DisplayName("PCN_03_Caso_02")
 	@Test
-	void testAddEquipo02() {
+	void PCN_03_Caso_02() {
 		
 		assertThrows(Exception.class, ()->{ge.addEquipo(null);}, "Fallo al añadir equipo");
 		

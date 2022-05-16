@@ -13,6 +13,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import alarmas.Alarma;
 
 //import org.mockito.*;
 
@@ -32,7 +35,7 @@ class ModificarUsuariosTests_CajaBlanca {
 	@Tag("PCB_04_Caso_01")
 	@Test
 	@DisplayName("PCB_04_Caso_01. Se envía usuario nulo")
-	void testUsuarioNull() {
+	void PCB_04_Caso_01() {
 		IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 		
 		IllegalArgumentException iae = assertThrows(IllegalArgumentException.class,()->{igu.modificarUsuario(null,"idPrueba");});
@@ -63,7 +66,7 @@ class ModificarUsuariosTests_CajaBlanca {
 	@Tag("PCB_04_Caso_02")
 	@Test
 	@DisplayName("PCB_04_Caso_02. No existen usuarios anhadidos")
-	void test_NoUsuariosAnhadidos() {
+	void PCB_04_Caso_02() {
 		IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 		
 		Usuario u = igu.crearUsuario("Ruben", "344552655H", 123456789, "email@dominio.com", "ETSE", "Beach Solpor", "Activo", true);
@@ -93,7 +96,7 @@ class ModificarUsuariosTests_CajaBlanca {
 		@Tag("PCB_04_Caso_03")
 		@Test
 		@DisplayName("PCB_04_Caso_03. Id introducido incorrecto")
-		void test_IdNoValido() {
+		void PCB_04_Caso_03() {
 			IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 						
 			Usuario uCloned = clonarUsuario(igu.obtenerListaUsuarios().get(0));
@@ -107,7 +110,7 @@ class ModificarUsuariosTests_CajaBlanca {
 		@Tag("PCB_04_Caso_04")
 		@Test
 		@DisplayName("PCB_04_Caso_04. Id modificado")
-		void test_ModificacionId() {
+		void PCB_04_Caso_04() {
 			IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 						
 			Usuario uCloned = clonarUsuario(igu.obtenerListaUsuarios().get(0));
@@ -125,7 +128,7 @@ class ModificarUsuariosTests_CajaBlanca {
 		@Tag("PCB_04_Caso_05")
 		@Test
 		@DisplayName("PCB_04_Caso_05. Modificación campo a null")
-		void test_ModificacionCampoNull() {
+		void PCB_04_Caso_05() {
 			IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 						
 			Usuario uCloned = clonarUsuario(igu.obtenerListaUsuarios().get(0));
@@ -134,7 +137,13 @@ class ModificarUsuariosTests_CajaBlanca {
 			
 			uCloned.setCentro(null);
 			
-			Usuario uModified = igu.modificarUsuario(uCloned, "Ruben_ETSE");
+			Usuario usuarioMocked = Mockito.mock(Usuario.class);
+			
+			Mockito.when(usuarioMocked.getIdUsuario()).thenReturn("Ruben_ETSE");
+			
+			Object o = usuarioMocked.getIdUsuario();
+			
+			Usuario uModified = igu.modificarUsuario(uCloned, usuarioMocked.getIdUsuario());
 						
 			assertEquals(oldCentro,uModified.getCentro(),"Error, aceptó que se modificase un campo a null");
 			
@@ -143,7 +152,7 @@ class ModificarUsuariosTests_CajaBlanca {
 		@Tag("PCB_04_Caso_06")
 		@Test
 		@DisplayName("PCB_04_Caso_06. Modificación campo correctamente")
-		void test_ModificacionCampoCorrectamente() {
+		void PCB_04_Caso_06() {
 			IGestorUsuarios igu = (IGestorUsuarios) GestorUsuarios.obtenerGestorUsuarios();
 						
 			Usuario uCloned = clonarUsuario(igu.obtenerListaUsuarios().get(0));
